@@ -1,0 +1,99 @@
+﻿@*@model BettingWebApp.Models.Match*@
+@model BettingWebApp.ViewModels.MatchOddViewModel
+
+
+@{
+    ViewData["Title"] = "Select";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model =>  model.Match.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.MatchDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Match.MatchDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.MatchTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Match.MatchTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.TeamA)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Match.TeamA)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.TeamB)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Match.TeamB)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Match.Sport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Match.Sport)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<p>
+    @Html.ActionLink("Create New Odd", "Create", "MatchOdds", new {MatchOddViewModel = Model})
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchOdd.Specifier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchOdd.Odd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MatchOdds)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specifier)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.MatchID)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Odd)
+                </td>
+
+                <td>
+                    <a asp-controller="MatchOdds" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-controller="MatchOdds" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-controller="MatchOdds" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

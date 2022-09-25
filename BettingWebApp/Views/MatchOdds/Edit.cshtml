@@ -1,0 +1,47 @@
+﻿@model BettingWebApp.Models.MatchOdd
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MatchOdd</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="MatchID" />
+            @*<div class="form-group">
+            <label asp-for="MatchID" class="control-label"></label>
+            <input asp-for="MatchID" class="form-control" value=@ViewData["matchID"]>
+            <span asp-validation-for="MatchID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Specifier" class="control-label"></label>
+                <input asp-for="Specifier" class="form-control" />
+                <span asp-validation-for="Specifier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Odd" class="control-label"></label>
+                <input asp-for="Odd" class="form-control" />
+                <span asp-validation-for="Odd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Matches" asp-action="Select" asp-route-id="@Model.MatchID">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

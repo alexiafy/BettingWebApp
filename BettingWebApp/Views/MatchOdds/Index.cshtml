@@ -1,0 +1,62 @@
+﻿@*@model BettingWebApp.Models.Match*@
+@*@model BettingWebApp.ViewModels.MatchOddViewModel*@
+@model IEnumerable<BettingWebApp.Models.MatchOdd>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1>Match Odds</h1>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<p>
+    @*<a asp-controller="MatchOdds" asp-action="Create" asp-route-id="@ViewData["MatchID"]">Create New Odd</a>*@
+    @*@Html.ActionLink("Create New Odd", "Create", "MatchOdds")*@
+    @Html.ActionLink("Create New Odd", "Create",  "MatchOdds", routeValues: new {matchId = ViewData["MatchID"]})
+
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Specifier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Odd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specifier)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.MatchID)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Odd)
+                </td>
+
+                <td>
+                    <a asp-controller="MatchOdds" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-controller="MatchOdds" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-controller="MatchOdds" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
