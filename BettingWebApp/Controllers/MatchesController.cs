@@ -48,10 +48,8 @@ namespace BettingWebApp.Controllers
 
             viewModel.MatchOdds = _context.MatchOdd.Where(
                     i => i.MatchID == id.Value);
-            //.Where(
-            //    i => i.ID == id.Value).Single().
 
-            //ViewBag.MatchID = id;
+
             ViewData["MatchID"] = viewModel.Match.ID;
             return View("~/Views/MatchOdds/Index.cshtml", viewModel.MatchOdds);
         }

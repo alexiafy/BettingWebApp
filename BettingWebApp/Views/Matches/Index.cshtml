@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Matches</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -56,7 +56,7 @@
                     @Html.DisplayFor(modelItem => item.Sport)
                 </td>
                 <td>
-                    @Html.ActionLink("Select", "Select", new { id = item.ID }) |  @*<a asp-action="Select" asp-route-id="@item.ID">Select</a> |*@  @*@Html.ActionLink("Select", "Index", new { id = item.ID }) |*@
+                    @Html.ActionLink("Select", "Select", new { id = item.ID }) |  
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>

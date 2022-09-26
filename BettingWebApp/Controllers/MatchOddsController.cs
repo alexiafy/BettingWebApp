@@ -66,7 +66,7 @@ namespace BettingWebApp.Controllers
 
                 _context.Add(matchOdd);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index), new { id = 2 });
+                //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Select", "Matches", new { id = matchOdd.MatchID });
             }
             return View(matchOdd);

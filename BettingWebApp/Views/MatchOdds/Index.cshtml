@@ -1,6 +1,4 @@
-﻿@*@model BettingWebApp.Models.Match*@
-@*@model BettingWebApp.ViewModels.MatchOddViewModel*@
-@model IEnumerable<BettingWebApp.Models.MatchOdd>
+﻿@model IEnumerable<BettingWebApp.Models.MatchOdd>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,8 +14,6 @@
 
 
 <p>
-    @*<a asp-controller="MatchOdds" asp-action="Create" asp-route-id="@ViewData["MatchID"]">Create New Odd</a>*@
-    @*@Html.ActionLink("Create New Odd", "Create", "MatchOdds")*@
     @Html.ActionLink("Create New Odd", "Create",  "MatchOdds", routeValues: new {matchId = ViewData["MatchID"]})
 
 </p>
@@ -41,9 +37,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Specifier)
                 </td>
-                @*  <td>
-            @Html.DisplayFor(modelItem => item.MatchID)
-            </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Odd)
                 </td>
