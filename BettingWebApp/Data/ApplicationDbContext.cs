@@ -15,7 +15,6 @@ namespace BettingWebApp.Data
         }
 
         public DbSet<BettingWebApp.Models.Match> Match { get; set; }
-
         public DbSet<BettingWebApp.Models.MatchOdd> MatchOdd { get; set; }
     }
 }
